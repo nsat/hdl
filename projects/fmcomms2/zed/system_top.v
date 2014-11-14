@@ -66,19 +66,11 @@ module system_top (
 
   gpio_bd,
   
-  hdmi_out_clk,
-  hdmi_vsync,
-  hdmi_hsync,
-  hdmi_data_e,
-  hdmi_data,
-  
   i2s_mclk,
   i2s_bclk,
   i2s_lrclk,
   i2s_sdata_out,
   i2s_sdata_in,  
-
-  spdif,
   
   iic_scl,
   iic_sda,
@@ -86,6 +78,7 @@ module system_top (
   iic_mux_sda,
 
   otg_vbusoc,
+  testcrap,
 
   rx_clk_in_p,
   rx_clk_in_n,
@@ -138,14 +131,6 @@ module system_top (
 
   inout   [31:0]  gpio_bd;
   
-  output          hdmi_out_clk;
-  output          hdmi_vsync;
-  output          hdmi_hsync;
-  output          hdmi_data_e;
-  output  [15:0]  hdmi_data;
-
-  output          spdif;
-  
   output          i2s_mclk;
   output          i2s_bclk;
   output          i2s_lrclk;
@@ -158,6 +143,7 @@ module system_top (
   inout   [ 1:0]  iic_mux_sda;
 
   input           otg_vbusoc;
+  output          testcrap;
 
   input           rx_clk_in_p;
   input           rx_clk_in_n;
@@ -284,11 +270,6 @@ module system_top (
     .GPIO_I (gpio_i),
     .GPIO_O (gpio_o),
     .GPIO_T (gpio_t),
-    .hdmi_data (hdmi_data),
-    .hdmi_data_e (hdmi_data_e),
-    .hdmi_hsync (hdmi_hsync),
-    .hdmi_out_clk (hdmi_out_clk),
-    .hdmi_vsync (hdmi_vsync),
     .i2s_bclk (i2s_bclk),
     .i2s_lrclk (i2s_lrclk),
     .i2s_mclk (i2s_mclk),
@@ -309,7 +290,6 @@ module system_top (
     .rx_data_in_p (rx_data_in_p),
     .rx_frame_in_n (rx_frame_in_n),
     .rx_frame_in_p (rx_frame_in_p),
-    .spdif (spdif),
     .spi_csn_i (1'b1),
     .spi_csn_o (spi_csn),    
     .spi_miso_i (spi_miso),
@@ -322,7 +302,8 @@ module system_top (
     .tx_data_out_n (tx_data_out_n),
     .tx_data_out_p (tx_data_out_p),
     .tx_frame_out_n (tx_frame_out_n),
-    .tx_frame_out_p (tx_frame_out_p));
+    .tx_frame_out_p (tx_frame_out_p),
+    .testcrap(testcrap));
 
 endmodule
 
