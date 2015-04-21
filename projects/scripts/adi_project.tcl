@@ -70,6 +70,12 @@ proc adi_project_create {project_name} {
     set project_board "em.avnet.com:mini_itx_7z045:part0:1.0"
   }
 
+   if [regexp "_flash$" $project_name] {
+    set xl_board "zed"
+    set project_part "xc7z020clg484-1"
+    set project_board "em.avnet.com:zynq:zed:d"
+  }
+
   # planahead - 6 and down
 
   if {$xl_board eq "ml605"} {
