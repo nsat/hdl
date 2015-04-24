@@ -5,9 +5,9 @@
 set DDR [create_bd_intf_port -mode Master -vlnv xilinx.com:interface:ddrx_rtl:1.0 DDR]
 set FIXED_IO [create_bd_intf_port -mode Master -vlnv xilinx.com:display_processing_system7:fixedio_rtl:1.0 FIXED_IO]
 
-set GPIO_I [create_bd_port -dir I -from 27 -to 0 GPIO_I]
-set GPIO_O [create_bd_port -dir O -from 27 -to 0 GPIO_O]
-set GPIO_T [create_bd_port -dir O -from 27 -to 0 GPIO_T]
+set GPIO_I [create_bd_port -dir I -from 28 -to 0 GPIO_I]
+set GPIO_O [create_bd_port -dir O -from 28 -to 0 GPIO_O]
+set GPIO_T [create_bd_port -dir O -from 28 -to 0 GPIO_T]
 
 # instance: sys_ps7
 
@@ -25,7 +25,7 @@ set_property -dict [list CONFIG.PCW_USE_FABRIC_INTERRUPT {1}] $sys_ps7
 set_property -dict [list CONFIG.PCW_IRQ_F2P_INTR {1}] $sys_ps7
 set_property -dict [list CONFIG.PCW_IRQ_F2P_MODE {REVERSE}] $sys_ps7
 set_property -dict [list CONFIG.PCW_GPIO_EMIO_GPIO_ENABLE {1}] $sys_ps7
-set_property -dict [list CONFIG.PCW_GPIO_EMIO_GPIO_IO {28}] $sys_ps7
+set_property -dict [list CONFIG.PCW_GPIO_EMIO_GPIO_IO {29}] $sys_ps7
 set_property -dict [list CONFIG.PCW_USE_DMA0 {0}] $sys_ps7
 set_property -dict [list CONFIG.PCW_USE_DMA1 {0}] $sys_ps7
 set_property -dict [list CONFIG.PCW_USE_DMA2 {0}] $sys_ps7
@@ -49,13 +49,17 @@ set_property -dict [list CONFIG.PCW_I2C1_I2C1_IO {MIO 32 .. 33}] $sys_ps7
 set_property -dict [list CONFIG.PCW_SPI0_PERIPHERAL_ENABLE {1}] $sys_ps7
 set_property -dict [list CONFIG.PCW_SPI0_SPI0_IO {EMIO}] $sys_ps7
 
-set_property -dict [list CONFIG.PCW_SD1_PERIPHERAL_ENABLE {1}] $sys_ps7
+set_property -dict [list CONFIG.PCW_SD0_PERIPHERAL_ENABLE {1}] $sys_ps7
+set_property -dict [list CONFIG.PCW_SD0_SD0_IO {MIO 40 .. 45}] $sys_ps7
+set_property -dict [list CONFIG.PCW_SD1_PERIPHERAL_ENABLE {0}] $sys_ps7
 set_property -dict [list CONFIG.PCW_SD1_SD1_IO {MIO 10 .. 15}] $sys_ps7
+#bugfix for no pullup on CMD line
+set_property -dict [list CONFIG.PCW_MIO_11_PULLUP {enabled}] $sys_ps7
 set_property -dict [list CONFIG.PCW_QSPI_GRP_FBCLK_ENABLE {0}] $sys_ps7
-set_property -dict [list CONFIG.PCW_SD0_GRP_CD_ENABLE {0}] $sys_ps7
-set_property -dict [list CONFIG.PCW_SD0_GRP_WP_ENABLE {0}] $sys_ps7
-set_property -dict [list CONFIG.PCW_SD1_GRP_CD_ENABLE {0}] $sys_ps7
-set_property -dict [list CONFIG.PCW_SD1_GRP_WP_ENABLE {0}] $sys_ps7
+set_property -dict [list CONFIG.PCW_SD0_GRP_CD_ENABLE {1}] $sys_ps7
+set_property -dict [list CONFIG.PCW_SD0_GRP_WP_ENABLE {1}] $sys_ps7
+#set_property -dict [list CONFIG.PCW_SD1_GRP_CD_ENABLE {0}] $sys_ps7
+#set_property -dict [list CONFIG.PCW_SD1_GRP_WP_ENABLE {0}] $sys_ps7
 
 set_property -dict [list CONFIG.PCW_PRESET_BANK0_VOLTAGE {LVCMOS 3.3V}] $sys_ps7
 set_property -dict [list CONFIG.PCW_PRESET_BANK1_VOLTAGE {LVCMOS 1.8V}] $sys_ps7

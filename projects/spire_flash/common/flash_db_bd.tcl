@@ -108,11 +108,11 @@ if {$sys_zynq == 1} {
   set_property -dict [list CONFIG.PCW_EN_CLK2_PORT {1}] $sys_ps7
   set_property -dict [list CONFIG.PCW_EN_RST2_PORT {1}] $sys_ps7
   set_property -dict [list CONFIG.PCW_FPGA2_PERIPHERAL_FREQMHZ {100.0}] $sys_ps7
-  set_property -dict [list CONFIG.PCW_GPIO_EMIO_GPIO_IO {28}] $sys_ps7
+  #set_property -dict [list CONFIG.PCW_GPIO_EMIO_GPIO_IO {29}] $sys_ps7
 
-  set_property LEFT 27 [get_bd_ports GPIO_I]
-  set_property LEFT 27 [get_bd_ports GPIO_O]
-  set_property LEFT 27 [get_bd_ports GPIO_T]
+  set_property LEFT 28 [get_bd_ports GPIO_I]
+  set_property LEFT 28 [get_bd_ports GPIO_O]
+  set_property LEFT 28 [get_bd_ports GPIO_T]
 }
 
 #connections (SPI)

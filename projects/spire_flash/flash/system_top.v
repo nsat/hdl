@@ -128,6 +128,7 @@ module system_top (
   output  [ 5:0]  tx_data_out_p;
   output  [ 5:0]  tx_data_out_n;
 
+  inout   [11:0]  gpio;
   inout           gpio_txnrx;
   inout           gpio_enable;
   inout           gpio_resetb;
@@ -135,7 +136,6 @@ module system_top (
   inout           gpio_en_agc;
   inout   [ 3:0]  gpio_ctl;
   inout   [ 7:0]  gpio_status;
-  inout   [10:0]  gpio;
 
   output          spi_csn;
   output          spi_clk;
@@ -144,17 +144,17 @@ module system_top (
 
   // internal signals
 
-  wire    [27:0]  gpio_i;
-  wire    [27:0]  gpio_o;
-  wire    [27:0]  gpio_t;
+  wire    [28:0]  gpio_i;
+  wire    [28:0]  gpio_o;
+  wire    [28:0]  gpio_t;
   wire    [15:0]  ps_intrs;
 
   // instantiations
 
-  ad_iobuf #(.DATA_WIDTH(28)) i_iobuf_gpio (
-    .dt ({gpio_t[27:0]}),
-    .di ({gpio_o[27:0]}),
-    .do ({gpio_i[27:0]}),
+  ad_iobuf #(.DATA_WIDTH(29)) i_iobuf_gpio (
+    .dt ({gpio_t[28:0]}),
+    .di ({gpio_o[28:0]}),
+    .do ({gpio_i[28:0]}),
     .dio({  gpio_txnrx,
             gpio_enable,
             gpio_resetb,
