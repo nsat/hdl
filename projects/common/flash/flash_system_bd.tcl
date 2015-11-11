@@ -56,10 +56,10 @@ set_property -dict [list CONFIG.PCW_SD1_SD1_IO {MIO 10 .. 15}] $sys_ps7
 #bugfix for no pullup on CMD line
 set_property -dict [list CONFIG.PCW_MIO_11_PULLUP {enabled}] $sys_ps7
 set_property -dict [list CONFIG.PCW_QSPI_GRP_FBCLK_ENABLE {0}] $sys_ps7
-set_property -dict [list CONFIG.PCW_SD0_GRP_CD_ENABLE {1}] $sys_ps7
-set_property -dict [list CONFIG.PCW_SD0_GRP_WP_ENABLE {1}] $sys_ps7
-#set_property -dict [list CONFIG.PCW_SD1_GRP_CD_ENABLE {0}] $sys_ps7
-#set_property -dict [list CONFIG.PCW_SD1_GRP_WP_ENABLE {0}] $sys_ps7
+set_property -dict [list CONFIG.PCW_SD0_GRP_CD_ENABLE {0}] $sys_ps7
+set_property -dict [list CONFIG.PCW_SD0_GRP_WP_ENABLE {0}] $sys_ps7
+set_property -dict [list CONFIG.PCW_SD1_GRP_CD_ENABLE {0}] $sys_ps7
+set_property -dict [list CONFIG.PCW_SD1_GRP_WP_ENABLE {0}] $sys_ps7
 
 set_property -dict [list CONFIG.PCW_PRESET_BANK0_VOLTAGE {LVCMOS 3.3V}] $sys_ps7
 set_property -dict [list CONFIG.PCW_PRESET_BANK1_VOLTAGE {LVCMOS 1.8V}] $sys_ps7
