@@ -61,6 +61,9 @@ set_property -dict [list CONFIG.PCW_SD0_GRP_WP_ENABLE {1}] $sys_ps7
 #set_property -dict [list CONFIG.PCW_SD1_GRP_CD_ENABLE {0}] $sys_ps7
 #set_property -dict [list CONFIG.PCW_SD1_GRP_WP_ENABLE {0}] $sys_ps7
 
+set_property -dict [list CONFIG.PCW_UART0_PERIPHERAL_ENABLE {1}] $sys_ps7
+set_property -dict [list CONFIG.PCW_UART0_UART0_IO {MIO 50 .. 51}] $sys_ps7
+
 set_property -dict [list CONFIG.PCW_PRESET_BANK0_VOLTAGE {LVCMOS 3.3V}] $sys_ps7
 set_property -dict [list CONFIG.PCW_PRESET_BANK1_VOLTAGE {LVCMOS 1.8V}] $sys_ps7
 
